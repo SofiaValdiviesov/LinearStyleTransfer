@@ -61,7 +61,7 @@ elif(opt.layer == 'r41'):
 matrix = MulLayer(opt.layer)
 vgg.load_state_dict(torch.load(opt.vgg_dir))
 dec.load_state_dict(torch.load(opt.decoder_dir))
-matrix.load_state_dict(torch.load(opt.matrixPath))
+matrix.load_state_dict(torch.load(opt.matrixPath, map_location='cpu'))
 
 ################# GLOBAL VARIABLE #################
 contentV = torch.Tensor(opt.batchSize,3,opt.fineSize,opt.fineSize)
